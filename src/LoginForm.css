@@ -1,0 +1,41 @@
+.head1{
+    font-family: 'Darker Grotesque', sans-serif;
+    text-align:center;
+    margin-top: 30px;
+    color: #9DAAF2;
+    padding: 10px;
+}
+
+input{
+    align-items: center;
+    border-radius: 20px;
+    max-width: "40";
+    height: 25px;
+    width: 300px;
+}
+
+.button{
+    align-items: center;
+    background-color: #C4C4C4;
+    color: black;
+    border-radius: 10px;
+}
+
+.button2{
+    align-items: center;
+    background-color: #FF6A3D;
+    margin-left: 50px;
+    color: black;
+    border-radius: 5px;
+}
+a{
+    color: white;
+}
+.LoginForm{
+    background-color: #1A2238 ;
+}
+
+.psw{
+    padding: 10px;
+    color: white;
+}
