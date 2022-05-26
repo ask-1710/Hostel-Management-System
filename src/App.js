@@ -1,35 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-import LoginForm from './LoginForm';
-import LoginPage from './LoginPage';
-import HomePageStud from './HomePageStud';
+import LoginForm from './components/LoginForm';
+import SignUpForm from './components/SignUpForm';
+import HomePageStud from './components/HomePageStud';
+import React from 'react';
+import { Routes , Route } from 'react-router-dom' ;
+import Temporary from './components/Temporary';
 
 function App() {
+  
   return (
       <div className="App">
-        <form>
-          {/*<h1>Hostel Management System</h1>
-          {/* <LoginForm></LoginForm> */}
-          {/* <LoginPage></LoginPage> */}
-          <HomePageStud></HomePageStud>
-        </form>
+        <div className="container mt-3">
+          <Routes>
+            
+            <Route path='/' element={<HomePageStud/>}
+            />
+
+            <Route path="/login" element={<LoginForm/>}
+            />
+
+            <Route path="/signup" element={<SignUpForm/>}
+            />
+
+            <Route path='/temporary' element={<Temporary/>}
+            />
+
+          </Routes> 
+          </div>
       </div>
   );
 }
 
-export default App;
 
-// <header className="App-header">
-//   <img src={logo} className="App-logo" alt="logo" />
-//   <p>
-//     Edit <code>src/App.js</code> and save to reload.
-//   </p>
-//   <a
-//     className="App-link"
-//     href="https://reactjs.org"
-//     target="_blank"
-//     rel="noopener noreferrer"
-//   >
-//     Learn React
-//   </a>
-// </header>
+export default App;

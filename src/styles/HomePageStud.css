@@ -1,8 +1,13 @@
 li{
+    list-style-type: none;
     display: inline;
     text-align: left;
     color:aliceblue;
+    padding: 50px;
+    margin: 10px;
+    font-size: large;
 }
+
 .HomePageStud1{
     background-color: #1A2238;
     color: white;

@@ -1,4 +1,5 @@
-import './HomePageStud.css';
+import '../styles/HomePageStud.css';
+import {Link} from 'react-router-dom' ;
 
 function HomePageStud() {
   return (
@@ -6,9 +7,9 @@ function HomePageStud() {
       <div className = "HomePageStud">
           <h1>Hostel Management System</h1>
           <nav>
-              <li>Get Outpass|</li>
-              <li>Book Rooms|</li>
-              <li>View Mess Bill</li>
+              <li className="btn btn-dark"><Link to='/temporary'>Get Outpass</Link></li>
+              <li><Link to='/temporary'>Book Rooms</Link></li>
+              <li><Link to='/temporary'>View Mess Bill</Link></li>
           </nav>
           <div className="HomePageStud1">
               <h3>Announcements: </h3>
