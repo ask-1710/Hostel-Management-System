@@ -16,9 +16,10 @@ input{
 
 .button{
     align-items: center;
-    background-color: #C4C4C4;
+    background-color: rgb(197, 190, 235);
     color: black;
-    border-radius: 10px;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .button2{
