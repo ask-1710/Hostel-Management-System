@@ -2,6 +2,8 @@ import "../styles/HomePageStud.css";
 import { Link } from "react-router-dom";
 import { Card, Container } from "react-bootstrap";
 import { useState } from "react";
+import Announcements from "./Announcements";
+import Couriers from './Couriers';
 
 function HomePageStud() {
   
@@ -48,11 +50,11 @@ function HomePageStud() {
           </li>
         </nav>
       </Card>
-      <Card className="bg-dark">
-        <h3 className="text-light">Announcements </h3>
+      <Card className="bg-dark text-white">
+        <Announcements/>
       </Card>
       <Card className="bg-dark">
-        <h3 className="text-light">Couriers Received</h3>
+        <Couriers/>
       </Card>
     </>
   );
