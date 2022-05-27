@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Card, Container } from "react-bootstrap";
-import CardHeader from "react-bootstrap/esm/CardHeader";
 
 const OutpassForm = props => {
   const [name, setName] = useState("") ;
@@ -9,13 +8,13 @@ const OutpassForm = props => {
   const [fromDate, setFromDate] = useState(new Date()) ;
   const [toDate, setToDate] = useState(new Date()) ;
 
-  const handleSubmit = () => {
-    alert(name+" , "+address+" , "+reason+" , "+fromDate+" , "+toDate) ;
-  }
+  // const handleSubmit = () => {
+  //   alert(name+" , "+address+" , "+reason+" , "+fromDate+" , "+toDate) ;
+  // }
 
   return (
     <Card className="bg-dark text-white">
-        <CardHeader><h2>Outpass Application</h2></CardHeader>
+        <h2>Outpass Application</h2>
         <form>
             <label className="p-1 m-2"> Name
             <input type="text" name="name" value={name} onChange={e=>setName(e.target.value)}/>
@@ -35,7 +34,7 @@ const OutpassForm = props => {
                 To 
                 <input type='date' name='toDate' onChange={e=>setToDate(e.target.value)}/>
             </label><br/>
-            <button type='submit' onClick={handleSubmit} className="btn btn-info p-1 m-4">Submit</button>
+            <button type='submit' className="btn btn-info p-1 m-4">Submit</button>
         </form>
     </Card>
   );

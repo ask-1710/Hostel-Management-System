@@ -1,8 +1,10 @@
 import "../styles/HomePageStud.css";
 import { Link } from "react-router-dom";
 import { Card, Container } from "react-bootstrap";
+import { useState } from "react";
 
 function HomePageStud() {
+  
   return (
     <>
       <Card>
@@ -26,6 +28,7 @@ function HomePageStud() {
       </Card>
       <Card className="bg-dark">
         <nav>
+          
           <li className="styleli">
             <Link to="/temporary" className="text-white">
               Get Outpass
@@ -49,7 +52,7 @@ function HomePageStud() {
         <h3 className="text-light">Announcements </h3>
       </Card>
       <Card className="bg-dark">
-        <h3 className="text-light">Couriers Received </h3>
+        <h3 className="text-light">Couriers Received</h3>
       </Card>
     </>
   );
