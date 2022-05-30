@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Temporary from "./components/Temporary";
 import OutpassStudent from "./components/OutpassStudent" ;
 import OutpassForm from "./components/OutpassForm";
+import RoomForm from './components/RoomBooking' ;
 
 function App() {
   // const [userType, setUserType] = useState("") ;
@@ -21,6 +22,7 @@ function App() {
           <Route path="/temporary" element={<Temporary />} />
           <Route path="/outpass" element={<OutpassStudent />} />
           <Route path='/outpass/apply' element={<OutpassForm/>} />
+          <Route path='/rooms' element={<RoomForm/>}/>
         </Routes>
       </div>
     </div>

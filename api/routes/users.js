@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express'
+import User from '../Controller/user' ;
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const userRouter = express.Router();
 
-module.exports = router;
+userRouter.route('/')
+  .post(User.apiPostVerifyUser) ;
+
+export default userRouter;

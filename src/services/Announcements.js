@@ -6,5 +6,4 @@ class AnnouncementsService {
     }
 }
 
-
 export default new AnnouncementsService();

@@ -9,6 +9,8 @@ import indexRouter from './routes/index.js' ;
 import announcementsRouter from './routes/announcements.js' ;
 import couriersRouter from './routes/couriers.js' ;
 import outpassRouter from './routes/outpass.js' ;
+import userRouter from './routes/users.js' ;
+import roombookingRouter from './routes/roombooking.js';
 
 var app = express();
 app.use(cors()) ;
@@ -31,6 +33,8 @@ app.use('/', indexRouter);
 app.use('/announcements', announcementsRouter);
 app.use('/couriers', couriersRouter);
 app.use('/outpass',outpassRouter);
+app.use('/user',userRouter);
+app.use('/rooms',roombookingRouter) ;
 app.use('*', (req, res)=>res.status(404).json({error: 'nor found'}))
 
 

@@ -3,7 +3,6 @@ import { Card } from "react-bootstrap";
 import OutpassService from "../services/Outpass";
 import history from "../history";
 
-
 const OutpassForm = (props) => {
   const [regno, setRegNo] = useState("");
   const [name, setName] = useState("");
@@ -48,7 +47,7 @@ const OutpassForm = (props) => {
       
     } catch (e) {
       console.log(e);
-      setAlert("Error while processing request..Please try again") ;   
+      setAlert("Error while processing outpass request..Please try again") ;   
       history.push('/outpass/apply/') ;   
     }
   };

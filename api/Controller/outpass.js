@@ -9,9 +9,17 @@ export default class Outpass {
     // const reason = req.getParameter("reason") ;
     // const fromDate = req.getParameter("fromDate") ;
     // const toDate = req.getParameter("toDate") ;
-    
-    const response = await OutpassDAO.insertOutpassRequest(req.body.regno, req.body.name, req.body.address, req.body.hostel, req.body.reason, req.body.fromDate, req.body.toDate);
-    
+
+    const response = await OutpassDAO.insertOutpassRequest(
+      req.body.regno,
+      req.body.name,
+      req.body.address,
+      req.body.hostel,
+      req.body.reason,
+      req.body.fromDate,
+      req.body.toDate
+    );
+
     res.json(response);
   }
 }
