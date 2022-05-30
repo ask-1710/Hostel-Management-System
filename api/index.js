@@ -3,6 +3,7 @@ import app from "./app.js"
 import dotenv from "dotenv"
 import AnnouncementsDAO from './DAO/announcements.js'
 import CouriersDAO from './DAO/couriers.js'
+import OutpassDAO from './DAO/outpass.js'
 
 dotenv.config()
 const mongoClient = mongodb.MongoClient
@@ -23,6 +24,7 @@ mongoClient.connect(
 .then(async client => {
     await AnnouncementsDAO.injectAnnouncementsDB(client)
     await CouriersDAO.injectCouriersDB(client)
+    await OutpassDAO.injectOutpassDB(client)
     app.listen(port, () => {
         console.log(`server listening on port ${port}`)
     })

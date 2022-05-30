@@ -1,17 +1,15 @@
 import "../styles/HomePageStud.css";
 import { Link } from "react-router-dom";
-import { Card, Container } from "react-bootstrap";
-import { useState } from "react";
+import { Card } from "react-bootstrap";
 import Announcements from "./Announcements";
-import Couriers from './Couriers';
+import Couriers from "./Couriers";
 
 function HomePageStud() {
-  
   return (
     <>
       <Card>
         <div className="row">
-            <div className="col-5"></div>
+          <div className="col-5"></div>
           <div className="col-10">
             <h1 className="float-left w-50 p-2">Hostel Management System</h1>
           </div>
@@ -30,10 +28,9 @@ function HomePageStud() {
       </Card>
       <Card className="bg-dark">
         <nav>
-          
           <li className="styleli">
-            <Link to="/temporary" className="text-white">
-              Get Outpass
+            <Link to="/outpass/apply" className="text-white">
+              Apply for an Outpass
             </Link>
           </li>
 
@@ -51,10 +48,10 @@ function HomePageStud() {
         </nav>
       </Card>
       <Card className="bg-dark text-white">
-        <Announcements/>
+        <Announcements />
       </Card>
       <Card className="bg-dark">
-        <Couriers/>
+        <Couriers />
       </Card>
     </>
   );

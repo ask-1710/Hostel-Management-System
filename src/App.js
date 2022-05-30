@@ -6,9 +6,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Temporary from "./components/Temporary";
 import OutpassStudent from "./components/OutpassStudent" ;
-import { useState } from "react";
 import OutpassForm from "./components/OutpassForm";
-import Announcements from "./components/Announcements";
 
 function App() {
   // const [userType, setUserType] = useState("") ;
@@ -23,7 +21,6 @@ function App() {
           <Route path="/temporary" element={<Temporary />} />
           <Route path="/outpass" element={<OutpassStudent />} />
           <Route path='/outpass/apply' element={<OutpassForm/>} />
-          {/* <Route path="/announcements" element={<Announcements/>}/> */}
         </Routes>
       </div>
     </div>

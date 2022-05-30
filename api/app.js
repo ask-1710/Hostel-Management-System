@@ -8,6 +8,7 @@ import {fileURLToPath} from 'url';
 import indexRouter from './routes/index.js' ;
 import announcementsRouter from './routes/announcements.js' ;
 import couriersRouter from './routes/couriers.js' ;
+import outpassRouter from './routes/outpass.js' ;
 
 var app = express();
 app.use(cors()) ;
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 app.use('/announcements', announcementsRouter);
 app.use('/couriers', couriersRouter);
+app.use('/outpass',outpassRouter);
 app.use('*', (req, res)=>res.status(404).json({error: 'nor found'}))
 
 
