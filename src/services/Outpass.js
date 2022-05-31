@@ -14,6 +14,15 @@ class OutpassService {
         console.log(data) ;
         return http.post('outpass', data);
     }
+
+    getOutpasses() {
+       return http.get('outpass') ; 
+    }
+    
+    verifyOutpass(outpassID, status) {
+        return http.patch(`outpass/${outpassID}`,{status: status}) ;
+    }
+    
 }
 
 export default new OutpassService();

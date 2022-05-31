@@ -22,4 +22,20 @@ export default class Outpass {
 
     res.json(response);
   }
+
+  static async apiGetOutpasses(req, res, next) {
+    const response = await OutpassDAO.getOutpasses() ;
+
+    res.json(response) ;
+  }
+
+  static async apiPatchOutpass(req, res, next) {
+    console.log(req.params.outpassID, req.body.status) ;
+
+    const response = await OutpassDAO.patchOutpass(req.params.outpassID, req.body.status) ;
+
+    console.log(response);
+    res.json(response) ;
+  
+  }
 }
