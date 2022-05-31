@@ -40,4 +40,25 @@ export default class AnnouncementsDAO {
       return { announcementsList: [], numAnnouncements: 0 };
     }
   }
+
+  static async insertAnnouncement(name, role, date, audience, info) {
+    try {
+      let result = await announcements.insertOne({
+        announcer: name,
+        position: role,
+        Date: date,
+        audience: audience,
+        information: info,
+      });
+      console.log(
+        `Inserted document into Announcements with ${result.insertedId}`
+      );
+      return { insertedId: result.insertedId };
+    } catch (e) {
+      console.error(
+        `Unable to issue insertOne command in Announcements db, ${e}`
+      );
+      return { error: "could not insert document" };
+    }
+  }
 }

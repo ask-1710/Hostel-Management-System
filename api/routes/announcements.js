@@ -5,6 +5,7 @@ const announcementsRouter = express.Router();
 
 /* GET home page. */
 announcementsRouter.route('/')
-  .get(Announcements.apiGetAnnouncements) ;
+  .get(Announcements.apiGetAnnouncements)
+  .post(Announcements.apiPostAnnouncement) 
 
 export default announcementsRouter;
