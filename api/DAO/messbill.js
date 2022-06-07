@@ -23,6 +23,7 @@ export default class MessBillDAO {
       let cursor = await bills.find({ studentRegNum: regNum , paymentStatus: false});
       messBillList = await cursor.toArray();
       numMessBills = messBillList.length;
+      console.log(messBillList) ;
       return { messBillList: messBillList, numMessBills: numMessBills };
     } catch (e) {
       console.error(`Unable to issue find command, ${e}`);

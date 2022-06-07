@@ -2,9 +2,11 @@ import MessBillDAO from "../DAO/messbill";
 
 export default class MessBill {
   static async apiGetMessBill(req, res, next) {
+    // console.log(req.query.studentRegNum) ;
     const { messBillList, numMessBills } = await MessBillDAO.getMessBill(
-      req.body.studentRegNum
+      req.query.studentRegNum
     );
+    
     const response = {
       messBillList: messBillList,
       numMessBills: numMessBills,

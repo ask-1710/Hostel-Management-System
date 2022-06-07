@@ -7,7 +7,7 @@ export default class Couriers {
       couriers: couriersList,
       numCouriers: numCouriers,
     };
-    // console.log(response) ;
+    
     res.json(response);
   }
 

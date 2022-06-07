@@ -2,7 +2,7 @@ import http from "../http-common";
 
 class MessBillService {
   getMessBill(studentRegNum) {
-    return http.get("/messbill", { studentRegNum: studentRegNum });
+    return http.get(`/messbill?studentRegNum=${studentRegNum}`);
   }
 
   insertMessBill(studentRegNum, studentName, Fee, paymentStatus = false) {

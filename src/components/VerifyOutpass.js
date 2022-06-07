@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row, Card } from "react-bootstrap";
 import OutpassService from "../services/Outpass";
-import history from "../history";
 
 const VerifyOutpass = (props) => {
   const [alert, setAlert] = useState("");
@@ -43,11 +42,11 @@ const VerifyOutpass = (props) => {
         if (data.error != null) {
           setAlertStatus(true);
           setAlert("Error occured while verifying outpass");
-        } 
+        }
         window.location.reload(false);
       });
   };
-
+  
   return (
     <>
       {alertStatus && (
@@ -55,6 +54,7 @@ const VerifyOutpass = (props) => {
           {alert}
         </div>
       )}
+
       <Card className="bg-dark text-white">
         <h2>Outpass Verification</h2>
         <Card.Body className="bg-dark text-white">

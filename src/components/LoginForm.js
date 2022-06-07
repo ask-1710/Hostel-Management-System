@@ -21,8 +21,10 @@ function LoginForm() {
       .then((res) => {
         if (res.data.returnedId !== "") {
           alert("Successful login : " + role + " -> " + userid);
-          
-          history("/home", { state: { role: role, userID: userid , loggedIn: true } });
+
+          history("/home", {
+            state: { role: role, userID: userid, loggedIn: true },
+          });
 
           // history.push({
           //   pathname: "/",
@@ -44,7 +46,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="App">
+    <Card className="my-50">
       {status && (
         <div>
           <h1>
@@ -111,7 +113,7 @@ function LoginForm() {
           </form>
         </Card.Body>
       </Card>
-    </div>
+    </Card>
   );
 }
 

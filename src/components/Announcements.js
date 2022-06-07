@@ -17,7 +17,7 @@ function Announcements() {
         if (data != undefined && data["numAnnouncements"] > 0) {
           let content = data["announcements"];
           let sortedAnnouncements = content.sort(
-            (a, b) => new Date(...b.Date) - new Date(...a.Date) 
+            (a, b) => new Date(...b.Date) - new Date(...a.Date)
           );
           setData(sortedAnnouncements);
         } else setData("No announcements to show");
@@ -28,23 +28,20 @@ function Announcements() {
     <>
       <h1>Announcements</h1>
       <Container className="bg-dark">
-        <Row>
-          {data.map((element) => {
-            return (
-              <Col className="p-4 m-1 w-25 h-auto">
-                <Card className="bg-dark">
-                  <Card.Header className="bg-dark">
-                    By : {element.announcer}
-                  </Card.Header>
-                  <Card.Body className="bg-dark">
-                    To : {element.audience}
-                    <br />
-                    Information: {element.information}
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })}
+        <Row className='mx-auto'>
+        {data.map((element) => {
+          return (
+            <Col className="p-5 m-2">
+              <div className="bg-dark text-white">
+                <div className="bg-dark text-white border border-info">
+                  By : {element.announcer} <br />
+                  To : {element.audience} <br />
+                  Information: {element.information}
+                </div>
+              </div>
+            </Col>
+          );
+        })}
         </Row>
       </Container>
     </>

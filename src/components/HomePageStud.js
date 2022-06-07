@@ -5,6 +5,7 @@ import Announcements from "./Announcements";
 import Couriers from "./Couriers";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import MessBillStudent from "./MessBillStudent";
 
 function HomePageStud(props) {
   const location = useLocation();
@@ -35,25 +36,21 @@ function HomePageStud(props) {
         <>
           <Card className="bg-dark">
             {location.state.role === "student" && (
-              <nav>
-                <li className="styleli">
-                  <Link to="/outpass/apply" className="text-white">
-                    Apply for an Outpass
-                  </Link>
-                </li>
+              <>
+                <nav>
+                  <li className="styleli">
+                    <Link to="/outpass/apply" className="text-white">
+                      Apply for an Outpass
+                    </Link>
+                  </li>
 
-                <li className="styleli">
-                  <Link to="/rooms" className="text-white">
-                    Book Rooms
-                  </Link>
-                </li>
-
-                <li className="styleli">
-                  <Link to="/temporary" className="text-white">
-                    View Mess Bill
-                  </Link>
-                </li>
-              </nav>
+                  <li className="styleli">
+                    <Link to="/rooms" className="text-white">
+                      Book Rooms
+                    </Link>
+                  </li>
+                </nav>
+              </>
             )}
 
             {location.state.role === "warden" && (
@@ -113,14 +110,11 @@ function HomePageStud(props) {
               </nav>
             )}
           </Card>
-          <Card className="bg-dark text-white">
-            <Announcements />
-          </Card>
-          <Card className="bg-dark">
-            <Couriers />
-          </Card>
+          <Announcements />
+          <Couriers />
         </>
       ) : null}
+      {/* {location.state.role === "student" && <MessBillStudent />} */}
     </>
   );
 }
