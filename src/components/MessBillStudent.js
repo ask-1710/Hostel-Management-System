@@ -23,8 +23,8 @@ function MessBillStudent() {
     "Dec",
   ]);
 
-  const [searchParams, setSearchParams] = useSearchParams() ;
-  const [location, setLocation] = useLocation() ;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
   useEffect(() => {
     getMessBills();
@@ -33,8 +33,7 @@ function MessBillStudent() {
   }, []);
 
   const getMessBills = () => {
-    // const userid = searchParams.get("userID");
-    const userid = location("userID");
+    const userid = location.state.userID;
     console.log(userid);
     setStudentId(userid);
     MessBillService.getMessBill(userid)
@@ -57,18 +56,24 @@ function MessBillStudent() {
     <>
       <h1>Mess Bill</h1>
       <Container className="bg-dark">
+        {!state && <p>Loading..</p>}
         {state && !success && <h4 className="p-4 text-white">{data}</h4>}
-        {success &&
-          data.map((element) => {
-            return (
-              <Row className="p-1 m-1 w-25 h-auto ms-auto me-auto text-white float-left text-left">
-                <span className="border border-info">
-                  <p>Amount : {element.Fee}</p>
-                  <p>Month : {monthNames[new Date(element.Date).getMonth()]}</p>
-                </span>
-              </Row>
-            );
-          })}
+        {state && success && (
+          <Row>
+            {data.map((element) => {
+              return (
+                <Col className="p-1 m-1 text-white">
+                  <Card className="bg-dark border border-info">
+                    <p>Amount : {element.Fee}</p>
+                    <p>
+                      Month : {monthNames[new Date(element.Date).getMonth()]}
+                    </p>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
+        )}
       </Container>
     </>
   );

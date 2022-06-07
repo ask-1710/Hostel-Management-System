@@ -32,20 +32,21 @@ function Couriers() {
         {data == [] ? (
           <h4 className="p-4">{data}</h4>
         ) : (
-          data.map((element) => {
-            return (
-              // to get other student details too
-              <Row className="m-1 w-25">
-                <Card className="bg-dark text-white float-left border border-info">
-                  <Card.Body className="bg-dark text-white  float-left">
-                    For : {element.studentRegNum}
-                    <br />
-                    OID : {element.orderId}
-                  </Card.Body>
-                </Card>
-              </Row>
-            );
-          })
+          <Row>
+            {data.map((element) => {
+              return (
+                <Col className="m-1">
+                  <Card className="bg-dark text-white float-left border border-info">
+                    <Card.Body className="bg-dark text-white  float-left">
+                      For : {element.studentRegNum}
+                      <br />
+                      OID : {element.orderId}
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
         )}
       </Container>
     </>

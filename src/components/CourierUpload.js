@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card } from "react-bootstrap";
 import CouriersService from "../services/Couriers";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 const MessBillUpload = (props) => {
   
@@ -13,11 +13,12 @@ const MessBillUpload = (props) => {
   const [success, setSuccess] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation() ;
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-
-    setUserID(searchParams.get("userID"));
+    
+    setUserID(location.state.userID);
 
     console.log(studentRegNum, studentName, orderId);
 

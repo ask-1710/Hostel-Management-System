@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card } from "react-bootstrap";
 import MessBillService from "../services/MessBill";
 import history from "../history";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 const MessBillUpload = (props) => {
   const [role, setRole] = useState("");
@@ -14,12 +14,16 @@ const MessBillUpload = (props) => {
   const [Fee, setFee] = useState(0);
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
 
-    setUserID(searchParams.get("userID"));
-    setRole(searchParams.get("role"));
+    // setUserID(searchParams.get("userID"));
+    // setRole(searchParams.get("role"));
+
+    setUserID(location.state.userID) ;
+    setRole(location.state.role) ;
 
     console.log(studentRegNum, studentName, Fee);
 

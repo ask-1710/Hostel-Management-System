@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import OutpassService from "../services/Outpass";
 import history from "../history";
 import { Link } from "react-router-dom";
+import { useLocation  } from "react-router-dom";
 
 const OutpassForm = (props) => {
   const [regno, setRegNo] = useState("");
@@ -14,7 +15,12 @@ const OutpassForm = (props) => {
   const [toDate, setToDate] = useState(new Date());
   const [alert, setAlert] = useState("");
 
-  const handleSubmit = () => {
+  const location = useLocation();
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    // window.alert(location.state.userID);
+    setRegNo(location.state.userID) ;
     console.log(
       regno +
         " , " +
@@ -32,7 +38,7 @@ const OutpassForm = (props) => {
     );
     try {
       let result = OutpassService.applyOutpass(
-        regno,
+        location.state.userID,
         name,
         address,
         hostel,
@@ -42,12 +48,10 @@ const OutpassForm = (props) => {
       );
       if (result) {
         setAlert("Request successful");
-        // history.go(-2) ; // passes query parameters along with home
       }
     } catch (e) {
       console.log(e);
       setAlert("Error while processing outpass request..Please try again");
-      history.replace("/outpass/apply/");
     }
   };
 
@@ -61,7 +65,7 @@ const OutpassForm = (props) => {
         <h2>Outpass Application</h2>
         <Card.Body className="bg-dark text-white">
           <form onSubmit={handleSubmit}>
-            <label className="p-1 m-2">
+            {/* <label className="p-1 m-2">
               {" "}
               Register Number *
               <input
@@ -72,7 +76,7 @@ const OutpassForm = (props) => {
                 required
               />
             </label>
-            <br />
+            <br /> */}
             <label className="p-1 m-2">
               {" "}
               Name *

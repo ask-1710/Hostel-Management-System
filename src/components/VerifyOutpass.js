@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row, Card } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import OutpassService from "../services/Outpass";
 
 const VerifyOutpass = (props) => {
@@ -7,6 +8,7 @@ const VerifyOutpass = (props) => {
   const [data, setData] = useState([]);
   const [dataStatus, setDataStatus] = useState(false);
   const [alertStatus, setAlertStatus] = useState(false);
+
   
   useEffect(() => {
     getOutpasses();

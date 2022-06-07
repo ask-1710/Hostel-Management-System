@@ -11,7 +11,6 @@ const RoomForm = (props) => {
   const [warning, setWarning] = useState(false);
 
   const bookRoom = (id) => {
-    // alert(id);
     RoomBookingService.bookRooms(id)
       .then((res) => res.data)
       .then((data) => {
@@ -101,7 +100,8 @@ const RoomForm = (props) => {
                     </Card.Header>
                     <Card.Body className="bg-dark">
                       Hostel: {element.hostel}
-                      <br/><br/>
+                      <br />
+                      <br />
                       <button onClick={() => bookRoom(element._id)}>
                         Book Room
                       </button>

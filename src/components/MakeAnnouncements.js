@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card } from "react-bootstrap";
 import AnnouncementsService from "../services/Announcements";
 import history from "../history";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 const MakeAnnouncements = (props) => {
   const [role, setRole] = useState("");
@@ -12,14 +12,14 @@ const MakeAnnouncements = (props) => {
   const [alert, setAlert] = useState("");
   const [userID, setUserID] = useState("");
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const searchParams = useSearchParams();
+
+  const location = useLocation();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    // window.alert(searchParams.get("userID"));
-    setUserID(searchParams.get("userID"));
-    setRole(searchParams.get("role"));
-
+    setUserID(location.state.userID);
+    setRole(location.state.role);
     console.log(
       userID + ", " + role + " ," + date + ", " + audience + ", " + info
     );
@@ -35,13 +35,11 @@ const MakeAnnouncements = (props) => {
         console.log(result.data) ;
         if (result.data) {
           setAlert("Request successful! Announcement added successfully");
-          history.push("/home");
-        } 
+        }
       });
     } catch (e) {
       console.log(e);
       setAlert("Error while adding announcement..Please try again");
-      history.push("/makeannouncements");
     }
   };
 
