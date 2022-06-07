@@ -6,6 +6,7 @@ import CouriersDAO from './DAO/couriers.js'
 import OutpassDAO from './DAO/outpass.js'
 import UserDAO from "./DAO/user.js"
 import RoomBookDAO from "./DAO/roombook.js"
+import MessBillDAO from "./DAO/messbill.js"
 
 dotenv.config()
 const mongoClient = mongodb.MongoClient
@@ -29,6 +30,7 @@ mongoClient.connect(
     await OutpassDAO.injectOutpassDB(client)
     await UserDAO.injectUserDB(client)
     await RoomBookDAO.injectRoomBookingDB(client)
+    await MessBillDAO.injectMessBillDB(client)
     app.listen(port, () => {
         console.log(`server listening on port ${port}`)
     })

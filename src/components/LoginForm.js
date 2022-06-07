@@ -9,19 +9,20 @@ import { useNavigate } from "react-router-dom";
 function LoginForm() {
   const [userid, setUserID] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("Student");
+  const [role, setRole] = useState("student");
   const [status, setStatus] = useState(false);
 
   let history = useNavigate();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
+    // alert("Successful login : " + userid + " -> " + password);
     LoginService.loginUser(userid, password, role)
       .then((res) => {
         if (res.data.returnedId !== "") {
-          alert("Successful login : " + role);
-
-          history("/", { state: { role: role, loggedIn: true } });
+          alert("Successful login : " + role + " -> " + userid);
+          
+          history("/home", { state: { role: role, userID: userid , loggedIn: true } });
 
           // history.push({
           //   pathname: "/",
@@ -63,7 +64,7 @@ function LoginForm() {
             <input
               type="text"
               name="userid"
-              value="warden01"
+              value={userid}
               onChange={(e) => {
                 setUserID(e.target.value);
               }}
@@ -74,7 +75,7 @@ function LoginForm() {
             <input
               type="password"
               name="password"
-              value="laksh01"
+              value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}

@@ -10,15 +10,30 @@ const RoomForm = (props) => {
   const [floorNumber, setFloorNumber] = useState("1");
   const [warning, setWarning] = useState(false);
 
+  const bookRoom = (id) => {
+    // alert(id);
+    RoomBookingService.bookRooms(id)
+      .then((res) => res.data)
+      .then((data) => {
+        console.log(data);
+        if (data != undefined && data["success"] == true) {
+          alert("Successful booking");
+        } else {
+          alert("Invalid booking");
+        }
+      });
+  };
+
   const handleSubmit = (ev) => {
     ev.preventDefault();
     RoomBookingService.getRooms(roomType, floorNumber)
       .then((res) => res.data)
       .then((data) => {
         console.log(data);
-        
+
         if (data != undefined && data["numRooms"] > 0) {
           setStatus(true);
+          setWarning(false);
           let content = data["rooms"];
           setData(content);
         } else {
@@ -86,7 +101,10 @@ const RoomForm = (props) => {
                     </Card.Header>
                     <Card.Body className="bg-dark">
                       Hostel: {element.hostel}
-                      
+                      <br/><br/>
+                      <button onClick={() => bookRoom(element._id)}>
+                        Book Room
+                      </button>
                     </Card.Body>
                   </Card>
                 </Col>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "react-bootstrap";
 import OutpassService from "../services/Outpass";
 import history from "../history";
+import { Link } from "react-router-dom";
 
 const OutpassForm = (props) => {
   const [regno, setRegNo] = useState("");
@@ -11,10 +12,9 @@ const OutpassForm = (props) => {
   const [hostel, setHostel] = useState("");
   const [fromDate, setFromDate] = useState(new Date());
   const [toDate, setToDate] = useState(new Date());
-  const [alert, setAlert] = useState("") ;
+  const [alert, setAlert] = useState("");
 
   const handleSubmit = () => {
-   
     console.log(
       regno +
         " , " +
@@ -40,21 +40,23 @@ const OutpassForm = (props) => {
         fromDate,
         toDate
       );
-      if(result) {
-        setAlert("Request successful") ;
+      if (result) {
+        setAlert("Request successful");
+        // history.go(-2) ; // passes query parameters along with home
       }
-      history.push('/') ;
-      
     } catch (e) {
       console.log(e);
-      setAlert("Error while processing outpass request..Please try again") ;   
-      history.push('/outpass/apply/') ;   
+      setAlert("Error while processing outpass request..Please try again");
+      history.replace("/outpass/apply/");
     }
   };
 
   return (
     <>
-    <div id="alert" className="alert">{alert}</div>
+      {/* <Link to={`/home?userID=${location.state.userID}&role=student`}>Click to go back to home page</Link> */}
+      <div id="alert" className="alert">
+        {alert}
+      </div>
       <Card className="bg-dark text-white">
         <h2>Outpass Application</h2>
         <Card.Body className="bg-dark text-white">

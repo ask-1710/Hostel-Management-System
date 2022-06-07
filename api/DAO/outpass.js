@@ -37,7 +37,8 @@ export default class OutpassDAO {
         reason: reason,
         fromDate: fromDate,
         toDate: toDate,
-        created_at: Date.now,
+        created_at: Date.now(),
+        verify: "pending",
       });
       console.log(
         `Inserted document into OutpassForm with ${result.insertedId}`
@@ -57,7 +58,7 @@ export default class OutpassDAO {
     let numOutpasses;
     try {
       // outpass.update({}, { $set: { "created_at": Date.now } }, false, true);
-      cursor = await outpass.find({ created_at: Date.now , verify : "pending" });
+      cursor = await outpass.find({ created_at: Date.now, verify: "pending" });
     } catch (e) {
       console.error(`Unable to issue find command in getOutpasses, ${e}`);
       return { outpassList: [], numOutpasses: 0 };
@@ -85,6 +86,7 @@ export default class OutpassDAO {
       return { numberModified: cursor.modifiedCount };
     } catch (error) {
       console.log(`Error while retreiving outpass with id ${outpassID}`);
+      return { error: "error" };
     }
   }
 }

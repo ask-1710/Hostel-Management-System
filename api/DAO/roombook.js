@@ -41,4 +41,25 @@ export default class RoomBookDAO {
     }
   }
 
+  static async bookRoomRequest(roomId){
+    let cursor;
+
+    try{
+      cursor = await roombooking.updateOne(
+        { _id: ObjectId(roomId) },
+        { $set: { occupied: true } }
+      );
+
+      console.log(cursor.modifiedCount) ;
+
+      return { success: true }
+    }
+    catch (error) {
+      console.log(`Error while retreiving room with id ${roomId}`);
+
+      return {success: false}
+    }
+
+  }
+
 }

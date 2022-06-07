@@ -9,10 +9,9 @@ const VerifyOutpass = (props) => {
   const [dataStatus, setDataStatus] = useState(false);
   const [alertStatus, setAlertStatus] = useState(false);
   
-
   useEffect(() => {
     getOutpasses();
-  });
+  },[]);
 
   const getOutpasses = () => {
     OutpassService.getOutpasses()
@@ -41,7 +40,7 @@ const VerifyOutpass = (props) => {
       .then((res) => res.data)
       .then((data) => {
         console.log(data);
-        if (data.error != "") {
+        if (data.error != null) {
           setAlertStatus(true);
           setAlert("Error occured while verifying outpass");
         } 

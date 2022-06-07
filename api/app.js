@@ -11,6 +11,8 @@ import couriersRouter from './routes/couriers.js' ;
 import outpassRouter from './routes/outpass.js' ;
 import userRouter from './routes/users.js' ;
 import roombookingRouter from './routes/roombooking.js';
+import messBillRouter from './routes/messbill.js';
+import bookroomRouter from './routes/bookroom.js';
 
 var app = express();
 app.use(cors()) ;
@@ -35,6 +37,8 @@ app.use('/couriers', couriersRouter);
 app.use('/outpass',outpassRouter);
 app.use('/user',userRouter);
 app.use('/rooms',roombookingRouter) ;
+app.use('/messbill',messBillRouter);
+app.use('/bookroom', bookroomRouter)
 app.use('*', (req, res)=>res.status(404).json({error: 'nor found'}))
 
 

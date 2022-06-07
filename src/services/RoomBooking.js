@@ -9,6 +9,14 @@ class RoomBookingService {
         // console.log(data) ;
         return http.post('rooms', data);
     }
+
+    bookRooms(id){
+      const data = {
+          roomId: id
+        }
+      return http.post('bookroom',data);
+
+    }
 }
 
 export default new RoomBookingService();
