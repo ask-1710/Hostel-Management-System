@@ -6,27 +6,22 @@ import Couriers from "./Couriers";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MessBillStudent from "./MessBillStudent";
+import OutpassStatus from './OutpassStatus';
 
 function HomePageStud(props) {
   const location = useLocation();
 
   return (
     <>
-      {/* <>Location {location.state.role}</> */}
-      <Card>
-        <div className="row">
-          <div className="col-5"></div>
-          <div className="col-10">
-            <h1 className="float-left w-50 p-2">Hostel Management System</h1>
-          </div>
-        </div>
-      </Card>
       {location.state.loggedIn ? (
         <>
+          <h1 style={{ fontSize: "50px", display: "inline-flex" }}>
+            Hostel Management System
+          </h1>
           <Card className="bg-dark">
             {location.state.role === "student" && (
               <>
-                <nav>
+                <nav className="p-5">
                   <li className="styleli">
                     <Link
                       to="/outpass/apply"
@@ -36,7 +31,9 @@ function HomePageStud(props) {
                       }}
                       className="text-white"
                     >
-                      Apply for an Outpass
+                      <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        Apply for an Outpass
+                      </p>
                     </Link>
                   </li>
 
@@ -49,7 +46,9 @@ function HomePageStud(props) {
                       }}
                       className="text-white"
                     >
-                      Book Rooms
+                      <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        Book Rooms
+                      </p>
                     </Link>
                   </li>
 
@@ -62,7 +61,9 @@ function HomePageStud(props) {
                       }}
                       className="text-white"
                     >
-                      View mess bills
+                      <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        View mess bills
+                      </p>
                     </Link>
                   </li>
                 </nav>
@@ -161,7 +162,9 @@ function HomePageStud(props) {
           </Card>
           <Announcements />
           <Couriers />
-          {location.state.role === "student" && <MessBillStudent />}
+          {location.state.role === "student" && <MessBillStudent /> && (
+            <OutpassStatus />
+          )}
         </>
       ) : null}
     </>

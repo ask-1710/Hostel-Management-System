@@ -4,6 +4,7 @@ import OutpassService from "../services/Outpass";
 import history from "../history";
 import { Link } from "react-router-dom";
 import { useLocation  } from "react-router-dom";
+import "../App.css";
 
 const OutpassForm = (props) => {
   const [regno, setRegNo] = useState("");
@@ -56,27 +57,15 @@ const OutpassForm = (props) => {
   };
 
   return (
-    <>
+    <div>
       {/* <Link to={`/home?userID=${location.state.userID}&role=student`}>Click to go back to home page</Link> */}
-      <div id="alert" className="alert">
+      <div className="alert">
         {alert}
       </div>
-      <Card className="bg-dark text-white">
+      <Card className="bg-black text-white" style={{width:"50rem", margin:"auto"}}>
         <h2>Outpass Application</h2>
-        <Card.Body className="bg-dark text-white">
+        <Card.Body className="bg-black text-white">
           <form onSubmit={handleSubmit}>
-            {/* <label className="p-1 m-2">
-              {" "}
-              Register Number *
-              <input
-                type="text"
-                name="regno"
-                value={regno}
-                onChange={(e) => setRegNo(e.target.value)}
-                required
-              />
-            </label>
-            <br /> */}
             <label className="p-1 m-2">
               {" "}
               Name *
@@ -149,7 +138,7 @@ const OutpassForm = (props) => {
           </form>
         </Card.Body>
       </Card>
-    </>
+    </div>
   );
 };
 

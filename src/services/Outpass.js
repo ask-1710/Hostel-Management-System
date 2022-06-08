@@ -16,13 +16,20 @@ class OutpassService {
     }
 
     getOutpasses() {
-       return http.get('outpass') ; 
+       return http.get('outpass') ;
     }
-    
+
     verifyOutpass(outpassID, status) {
         return http.patch(`outpass/${outpassID}`,{status: status}) ;
     }
-    
+
+    getOutpassStatus(regno){
+      const data={
+          regno: regno
+      };
+      return http.post('outpass/status',data);
+    }
+
 }
 
 export default new OutpassService();

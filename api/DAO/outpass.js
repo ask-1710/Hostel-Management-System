@@ -89,4 +89,32 @@ export default class OutpassDAO {
       return { error: "error" };
     }
   }
+
+  static async getOutpassStatus(regno){
+
+    let cursor;
+    let outpassList;
+    let numOutpasses;
+    try {
+      // outpass.update({}, { $set: { "created_at": Date.now } }, false, true);
+      cursor = await outpass.find({ regno: regno });
+    } catch (e) {
+      console.error(`Unable to issue find command in getOutpassStatus, ${e}`);
+      return { outpassList: [], numOutpasses: 0 };
+    }
+    try {
+      outpassList = await cursor.toArray();
+      console.log(outpassList);
+      numOutpasses = outpassList.length;
+      return { outpassList: outpassList, numOutpasses: numOutpasses };
+    } catch (e) {
+      console.error(
+        `Unable to convert cursor  to array or problem counting documents, ${e}`
+      );
+      return { outpassList: [], numOutpasses: 0 };
+    }
+
+  }
+
+
 }

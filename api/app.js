@@ -38,7 +38,8 @@ app.use('/outpass',outpassRouter);
 app.use('/user',userRouter);
 app.use('/rooms',roombookingRouter) ;
 app.use('/messbill',messBillRouter);
-app.use('/bookroom', bookroomRouter)
+app.use('/bookroom', bookroomRouter);
+app.use('/outpass/status', outpassRouter);
 app.use('*', (req, res)=>res.status(404).json({error: 'nor found'}))
 
 

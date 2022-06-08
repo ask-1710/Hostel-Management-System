@@ -7,6 +7,9 @@ outpassRouter.route('/')
   .post(Outpass.apiPostOutpassRequest)
   .get(Outpass.apiGetOutpasses)
 
+  outpassRouter.route('/status')
+  .post(Outpass.apiPostOutpassStatus)
+
 outpassRouter.route('/:outpassID')
   .patch(Outpass.apiPatchOutpass)
 

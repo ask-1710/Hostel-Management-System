@@ -35,14 +35,13 @@ function Couriers() {
           <Row>
             {data.map((element) => {
               return (
-                <Col className="m-1">
-                  <Card className="bg-dark text-white float-left border border-info">
-                    <Card.Body className="bg-dark text-white  float-left">
-                      For : {element.studentRegNum}
-                      <br />
-                      OID : {element.orderId}
-                    </Card.Body>
-                  </Card>
+                <Col className="p-5 m-2">
+                  <div className="bg-dark text-white">
+                  <div style={{width:"25rem", height:"8rem"}} className="bg-dark text-white border border-light">
+                      Student Register Number : {element.studentRegNum} <br />
+                      Order ID : {element.orderId}
+                    </div>
+                  </div>
                 </Col>
               );
             })}

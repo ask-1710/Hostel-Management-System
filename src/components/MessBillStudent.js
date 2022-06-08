@@ -63,7 +63,7 @@ function MessBillStudent() {
             {data.map((element) => {
               return (
                 <Col className="p-1 m-1 text-white">
-                  <Card className="bg-dark border border-info">
+                  <Card style={{width: "25rem"}} className="bg-dark border border-light">
                     <p>Amount : {element.Fee}</p>
                     <p>
                       Month : {monthNames[new Date(element.Date).getMonth()]}

@@ -36,6 +36,18 @@ export default class Outpass {
 
     console.log(response);
     res.json(response) ;
-  
+
+  }
+
+  static async apiPostOutpassStatus(req, res, next){
+
+    const { outpassList, numOutpasses } =
+      await OutpassDAO.getOutpassStatus(req.body.regno);
+    const response = {
+      outpassList: outpassList,
+      numOutpasses: numOutpasses,
+    };
+
+    res.json(response);
   }
 }
