@@ -44,17 +44,17 @@ const RoomForm = (props) => {
   };
 
   return (
-    <>
+    <div style={{ width: "40rem",height:"100rem", margin: "auto" }}>
       <div id="alert" className="alert">
         {alert}
       </div>
       <Card className="bg-dark text-white">
-        <h2>Room Booking</h2>
+        <h1>Room Booking</h1>
         <Card.Body className="bg-dark text-white">
           <form onSubmit={handleSubmit} id="roomform">
             <label className="p-1 m-2">
               {" "}
-              Room Type *
+              <p style={{fontSize:"20px", display:"inline-flex"}}>Room Type *{" "}</p>
               <select
                 id="roomtype"
                 name="roomtypes"
@@ -69,7 +69,7 @@ const RoomForm = (props) => {
             <br />
             <label className="p-1 m-2">
               {" "}
-              Floor Number *
+              <p style={{fontSize:"20px", display:"inline-flex"}}>Floor Number *</p>
               <select
                 id="floornumber"
                 name="floornumbers"
@@ -114,7 +114,7 @@ const RoomForm = (props) => {
         </Container>
       )}
       {warning && data}
-    </>
+    </div>
   );
 };
 

@@ -28,7 +28,7 @@ function Couriers() {
   return (
     <>
       <h1>Couriers</h1>
-      <Container className="bg-dark">
+      <div className="bg-dark">
         {data == [] ? (
           <h4 className="p-4">{data}</h4>
         ) : (
@@ -47,7 +47,7 @@ function Couriers() {
             })}
           </Row>
         )}
-      </Container>
+      </div>
     </>
   );
 }

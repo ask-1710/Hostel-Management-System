@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import OutpassService from "../services/Outpass";
 import history from "../history";
 import { Link } from "react-router-dom";
-import { useLocation  } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "../App.css";
 
 const OutpassForm = (props) => {
@@ -21,7 +21,7 @@ const OutpassForm = (props) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     // window.alert(location.state.userID);
-    setRegNo(location.state.userID) ;
+    setRegNo(location.state.userID);
     console.log(
       regno +
         " , " +
@@ -59,17 +59,19 @@ const OutpassForm = (props) => {
   return (
     <div>
       {/* <Link to={`/home?userID=${location.state.userID}&role=student`}>Click to go back to home page</Link> */}
-      <div className="alert">
-        {alert}
-      </div>
-      <Card className="bg-black text-white" style={{width:"50rem", margin:"auto"}}>
+      <div className="alert">{alert}</div>
+      <Card
+        className="bg-black text-white"
+        style={{ width: "50rem", margin: "auto" }}
+      >
         <h2>Outpass Application</h2>
         <Card.Body className="bg-black text-white">
           <form onSubmit={handleSubmit}>
             <label className="p-1 m-2">
               {" "}
-              Name *
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>Name *</p>
               <input
+                style={{ display: "inline-flex" }}
                 type="text"
                 name="name"
                 value={name}
@@ -80,7 +82,9 @@ const OutpassForm = (props) => {
             <br />
             <label className="p-1 m-2">
               {" "}
-              Address *
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>
+                Address *
+              </p>
               <input
                 type="text"
                 name="address"
@@ -91,7 +95,9 @@ const OutpassForm = (props) => {
             </label>
             <br />
             <label className="p-1 m-2">
-              Hostel *
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>
+                Hostel *
+              </p>
               <input
                 type="text"
                 name="hostel"
@@ -102,7 +108,9 @@ const OutpassForm = (props) => {
             </label>
             <br />
             <label className="p-1 m-2">
-              Reason *
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>
+                Reason *
+              </p>
               <input
                 type="text"
                 name="reason"
@@ -113,7 +121,7 @@ const OutpassForm = (props) => {
             </label>
             <br />
             <label className="p-1 m-2">
-              From *
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>From *</p>
               <input
                 type="date"
                 name="fromDate"
@@ -123,7 +131,7 @@ const OutpassForm = (props) => {
             </label>
             <br />
             <label className="p-1 m-2">
-              To *
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>To *</p>
               <input
                 type="date"
                 name="toDate"

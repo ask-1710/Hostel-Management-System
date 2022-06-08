@@ -27,7 +27,7 @@ function Announcements() {
   return (
     <>
       <h1>Announcements</h1>
-      <Container className="bg-dark">
+      <div className="bg-dark">
         <Row className='mx-auto'>
         {data.map((element) => {
           return (
@@ -43,7 +43,7 @@ function Announcements() {
           );
         })}
         </Row>
-      </Container>
+      </div>
     </>
   );
 }

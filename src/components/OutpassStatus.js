@@ -30,7 +30,7 @@ function OutpassStatus() {
   return (
     <>
       <h1>Outpass Status</h1>
-      <Container className="bg-dark">
+      <div className="bg-dark">
         <Row>
           {data.map((element) => {
             return (
@@ -53,7 +53,7 @@ function OutpassStatus() {
             );
           })}
         </Row>
-      </Container>
+      </div>
     </>
   );
 }

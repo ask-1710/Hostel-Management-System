@@ -22,6 +22,9 @@ function HomePageStud(props) {
             {location.state.role === "student" && (
               <>
                 <nav className="p-5">
+                  <li>
+                    <a href={"#couriers"}>View Couriers</a>
+                  </li>
                   <li className="styleli">
                     <Link
                       to="/outpass/apply"
@@ -81,7 +84,9 @@ function HomePageStud(props) {
                     }}
                     className="text-white"
                   >
-                    Verify Outpasses
+                    <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        Verify Outpass
+                      </p>
                   </Link>
                 </li>
 
@@ -94,7 +99,9 @@ function HomePageStud(props) {
                     }}
                     className="text-white"
                   >
-                    Make Announcements
+                    <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        Make Announcements
+                      </p>
                   </Link>
                 </li>
               </nav>
@@ -111,7 +118,9 @@ function HomePageStud(props) {
                     }}
                     className="text-white"
                   >
-                    Upload couriers
+                    <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        Upload Couriers
+                      </p>
                   </Link>
                 </li>
 
@@ -124,7 +133,9 @@ function HomePageStud(props) {
                     }}
                     className="text-white"
                   >
-                    Make Announcements
+                    <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        Make Announcements
+                      </p>
                   </Link>
                 </li>
               </nav>
@@ -141,7 +152,9 @@ function HomePageStud(props) {
                     }}
                     className="text-white"
                   >
-                    Upload Mess Bills
+                    <p style={{ fontSize: "25px", display: "inline-flex" }}>
+                        Upload Mess Bill
+                      </p>
                   </Link>
                 </li>
 
@@ -161,7 +174,10 @@ function HomePageStud(props) {
             )}
           </Card>
           <Announcements />
+          <div id="couriers">
           <Couriers />
+          </div>
+          
           {location.state.role === "student" && <MessBillStudent /> && (
             <OutpassStatus />
           )}
