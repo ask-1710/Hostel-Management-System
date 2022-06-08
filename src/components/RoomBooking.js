@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, Container, Col, Row } from "react-bootstrap";
 import RoomBookingService from "../services/RoomBooking";
 import history from "../history";
+import { useLocation } from "react-router-dom";
 
 const RoomForm = (props) => {
   const [data, setData] = useState([]);
@@ -10,8 +11,11 @@ const RoomForm = (props) => {
   const [floorNumber, setFloorNumber] = useState("1");
   const [warning, setWarning] = useState(false);
 
+  const location = useLocation();
+
   const bookRoom = (id) => {
-    RoomBookingService.bookRooms(id)
+    const userid = location.state.userID ;
+    RoomBookingService.bookRooms(id, userid)
       .then((res) => res.data)
       .then((data) => {
         console.log(data);
@@ -44,7 +48,7 @@ const RoomForm = (props) => {
   };
 
   return (
-    <div style={{ width: "40rem",height:"100rem", margin: "auto" }}>
+    <div style={{ width: "40rem", height: "100rem", margin: "auto" }}>
       <div id="alert" className="alert">
         {alert}
       </div>
@@ -54,7 +58,9 @@ const RoomForm = (props) => {
           <form onSubmit={handleSubmit} id="roomform">
             <label className="p-1 m-2">
               {" "}
-              <p style={{fontSize:"20px", display:"inline-flex"}}>Room Type *{" "}</p>
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>
+                Room Type *{" "}
+              </p>
               <select
                 id="roomtype"
                 name="roomtypes"
@@ -69,7 +75,9 @@ const RoomForm = (props) => {
             <br />
             <label className="p-1 m-2">
               {" "}
-              <p style={{fontSize:"20px", display:"inline-flex"}}>Floor Number *</p>
+              <p style={{ fontSize: "20px", display: "inline-flex" }}>
+                Floor Number *
+              </p>
               <select
                 id="floornumber"
                 name="floornumbers"
@@ -94,13 +102,11 @@ const RoomForm = (props) => {
             {data.map((element) => {
               return (
                 <Col className="p-4 m-1 w-25 h-auto">
-                  <Card className="bg-dark text-white">
-                    <Card.Header className="bg-dark text-white">
-                      RoomNumber : {element.roomNum}
-                    </Card.Header>
+                  <Card style={{border: "1px solid white"}}className="bg-dark text-white">
                     <Card.Body className="bg-dark">
-                      Hostel: {element.hostel}
+                      RoomNumber : {element.roomNum}
                       <br />
+                      Hostel: {element.hostel}
                       <br />
                       <button onClick={() => bookRoom(element._id)}>
                         Book Room

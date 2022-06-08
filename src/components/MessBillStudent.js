@@ -55,26 +55,28 @@ function MessBillStudent() {
   return (
     <>
       <h1>Mess Bill</h1>
-      <Container className="bg-dark">
-        {!state && <p>Loading..</p>}
-        {state && !success && <h4 className="p-4 text-white">{data}</h4>}
-        {state && success && (
-          <Row>
+      {state && !success && <h4 className="p-4 text-white">{data}</h4>}
+      {state && success && (
+        <div className="bg-dark">
+          <Row className="mx-auto">
             {data.map((element) => {
               return (
-                <Col className="p-1 m-1 text-white">
-                  <Card style={{width: "25rem"}} className="bg-dark border border-light">
-                    <p>Amount : {element.Fee}</p>
-                    <p>
+                <Col className="p-5 m-2">
+                  <div className="bg-dark text-white">
+                    <div
+                      style={{ width: "20rem", height: "5rem" }}
+                      className="bg-dark text-white border border-light p-2"
+                    >
+                      Amount : {"Rs.  "+element.Fee}<br/>
                       Month : {monthNames[new Date(element.Date).getMonth()]}
-                    </p>
-                  </Card>
+                    </div>
+                  </div>
                 </Col>
               );
             })}
           </Row>
-        )}
-      </Container>
+        </div>
+      )}
     </>
   );
 }

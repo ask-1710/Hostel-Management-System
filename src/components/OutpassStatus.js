@@ -35,19 +35,15 @@ function OutpassStatus() {
           {data.map((element) => {
             return (
               <div className="bg-dark text-white border border-light p-4 m-4" style={{width:"20rem"}}>
-                Student Name : {element.name}
+                Address : {"  "+element.address}
                 <br />
-                Address : {element.address}
+                From : {"  " +new Date(element.fromDate)}
                 <br />
-                Hostel : {element.hostel}
+                To : {"  " +new Date(element.toDate)}
                 <br />
-                From : {element.fromDate}
+                Reason : {"  "+element.reason}
                 <br />
-                To : {element.toDate}
-                <br />
-                Reason : {element.reason}
-                <br />
-                Status : {element.verify}
+                Status : {"  "+element.verify}
                 <br />
               </div>
             );

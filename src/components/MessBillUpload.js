@@ -47,11 +47,11 @@ const MessBillUpload = (props) => {
   };
 
   return (
-    <>
+    <div style={{ width: "40rem", height: "100rem", margin: "auto" }}>
       <div id="alert" className="alert">
         {alert}
       </div>
-      <Card className="bg-dark text-white">
+      <Card  className="bg-dark text-white">
         <h2>Upload Mess Bill</h2>
         <Card.Body className="bg-dark text-white">
           <form onSubmit={handleSubmit}>
@@ -97,7 +97,7 @@ const MessBillUpload = (props) => {
           </form>
         </Card.Body>
       </Card>
-    </>
+    </div>
   );
 };
 

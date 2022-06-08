@@ -2,12 +2,14 @@ import CouriersDAO from "../DAO/couriers";
 
 export default class Couriers {
   static async apiGetCouriers(req, res, next) {
-    const { couriersList, numCouriers } = await CouriersDAO.getCouriers();
+    console.log(req.query.studentID);
+    const { couriersList, numCouriers } = await CouriersDAO.getCouriers(req.query.studentID);
     const response = {
       couriers: couriersList,
       numCouriers: numCouriers,
     };
     
+    console.log(response) ;
     res.json(response);
   }
 

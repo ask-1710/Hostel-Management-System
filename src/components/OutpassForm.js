@@ -40,9 +40,7 @@ const OutpassForm = (props) => {
     try {
       let result = OutpassService.applyOutpass(
         location.state.userID,
-        name,
         address,
-        hostel,
         reason,
         fromDate,
         toDate
@@ -69,19 +67,6 @@ const OutpassForm = (props) => {
           <form onSubmit={handleSubmit}>
             <label className="p-1 m-2">
               {" "}
-              <p style={{ fontSize: "20px", display: "inline-flex" }}>Name *</p>
-              <input
-                style={{ display: "inline-flex" }}
-                type="text"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </label>
-            <br />
-            <label className="p-1 m-2">
-              {" "}
               <p style={{ fontSize: "20px", display: "inline-flex" }}>
                 Address *
               </p>
@@ -90,19 +75,6 @@ const OutpassForm = (props) => {
                 name="address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                required
-              />
-            </label>
-            <br />
-            <label className="p-1 m-2">
-              <p style={{ fontSize: "20px", display: "inline-flex" }}>
-                Hostel *
-              </p>
-              <input
-                type="text"
-                name="hostel"
-                value={hostel}
-                onChange={(e) => setHostel(e.target.value)}
                 required
               />
             </label>

@@ -11,6 +11,7 @@ const MakeAnnouncements = (props) => {
   const [info, setInfo] = useState("");
   const [alert, setAlert] = useState("");
   const [userID, setUserID] = useState("");
+  const [name, setName] = useState("");
 
   const searchParams = useSearchParams();
 
@@ -26,7 +27,7 @@ const MakeAnnouncements = (props) => {
 
     try {
       AnnouncementsService.makeAnnouncements(
-        userID,
+        name,
         role,
         date,
         audience,
@@ -52,6 +53,16 @@ const MakeAnnouncements = (props) => {
         <h2>Create Announcement</h2>
         <Card.Body className="bg-dark text-white">
           <form onSubmit={handleSubmit}>
+          <label className="p-1 m-2">
+              Name *
+              <input
+                type="text"
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </label>
+            <br />
             <label className="p-1 m-2">
               Date *
               <input

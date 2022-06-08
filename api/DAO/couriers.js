@@ -17,11 +17,11 @@ export default class CouriersDAO {
     }
   }
 
-  static async getCouriers() {
+  static async getCouriers(studentID) {
     let cursor;
 
     try {
-      cursor = await couriers.find();
+      cursor = await couriers.find({studentRegNum: studentID});
     } catch (e) {
       console.error(`Unable to issue find command, ${e}`);
       return { couriersList: [], numCouriers: 0 };
@@ -30,7 +30,7 @@ export default class CouriersDAO {
     try {
       let couriersList = await cursor.toArray();
 
-      let numCouriers = await couriers.countDocuments();
+      let numCouriers = await couriersList.length ;
 
       return { couriersList, numCouriers };
     } catch (e) {

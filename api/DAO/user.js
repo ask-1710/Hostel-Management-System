@@ -23,13 +23,13 @@ export default class UserDAO {
       });
       let userList = await result.toArray();
       if (userList.length <= 0) {
-        return { error: "Unauthorized user" };
+        return { error: "Unauthorized user" , status: "invalid"};
       }
       console.log(`Returned user with id ${userList[0].userid}`);
-      return { returnedId: userList[0].userid };
+      return { returnedId: userList[0].userid , status: "valid"};
     } catch (e) {
       console.error(`Unable to issue insertOne command in UsersDAO, ${e}`);
-      return { error: "Unauthorized user" };
+      return { error: "Unauthorized user" , status: "invalid"};
     }
   }
 }

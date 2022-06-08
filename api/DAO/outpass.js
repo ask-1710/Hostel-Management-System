@@ -66,7 +66,7 @@ export default class OutpassDAO {
     try {
       outpassList = await cursor.toArray();
       console.log(outpassList);
-      numOutpasses = outpassList.length;
+      numOutpasses = await outpassList.length;
       return { outpassList: outpassList, numOutpasses: numOutpasses };
     } catch (e) {
       console.error(

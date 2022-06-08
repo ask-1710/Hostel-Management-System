@@ -28,20 +28,23 @@ function Announcements() {
     <>
       <h1>Announcements</h1>
       <div className="bg-dark">
-        <Row className='mx-auto'>
-        {data.map((element) => {
-          return (
-            <Col className="p-5 m-2">
-              <div  className="bg-dark text-white">
-                <div style={{width:"20rem", height:"10rem"}} className="bg-dark text-white border border-light">
-                  By : {element.announcer} <br />
-                  To : {element.audience} <br />
-                  Information: {element.information}
+        <Row className="mx-auto">
+          {data.map((element) => {
+            return (
+              <Col className="p-5 m-2">
+                <div className="bg-dark text-white">
+                  <div
+                    style={{ width: "20rem", height: "10rem" }}
+                    className="bg-dark text-white border border-light"
+                  >
+                    By : {element.announcer} <br />
+                    To : {element.audience} <br />
+                    Information: {element.information}
+                  </div>
                 </div>
-              </div>
-            </Col>
-          );
-        })}
+              </Col>
+            );
+          })}
         </Row>
       </div>
     </>

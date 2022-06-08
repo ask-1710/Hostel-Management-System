@@ -11,7 +11,7 @@ import VerifyOutpass from './components/VerifyOutpass' ;
 import MakeAnnouncements from "./components/MakeAnnouncements";
 import MessBillUpload from "./components/MessBillUpload";
 import CourierUpload from './components/CourierUpload';
-import MessBillStudent from './components/MessBillStudent' ;
+import VerifyRoomRequests from './components/VerifyRoomRequests' ;
 
 function App() {
   // const [userType, setUserType] = useState("") ;
@@ -31,7 +31,7 @@ function App() {
           <Route path='/rooms' element={<RoomForm/>}/>
           <Route path='/messbill/upload' element={<MessBillUpload/>}/>
           <Route path='/courier/upload' element={<CourierUpload/>}/>
-          <Route path='/messbill/view' element={<MessBillStudent/>}/>
+          <Route path='/rooms/verify' element={<VerifyRoomRequests/>}/>
         </Routes>
       </div>
     </div>

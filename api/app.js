@@ -42,7 +42,7 @@ app.use('/bookroom', bookroomRouter);
 app.use('/outpass/status', outpassRouter);
 app.use('*', (req, res)=>res.status(404).json({error: 'nor found'}))
 
-
+  
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

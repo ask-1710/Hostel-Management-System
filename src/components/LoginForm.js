@@ -3,7 +3,6 @@ import { Card, Button } from "react-bootstrap";
 import LoginService from "../services/Login";
 import { useState } from "react";
 import { Link } from "react";
-// import history from "../history";
 import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
@@ -19,8 +18,7 @@ function LoginForm() {
     // alert("Successful login : " + userid + " -> " + password);
     LoginService.loginUser(userid, password, role)
       .then((res) => {
-        if (res.data.returnedId !== "") {
-          alert("Successful login : " + role + " -> " + userid);
+        if (res.data.status === "valid") {
 
           history("/home", {
             state: { role: role, userID: userid, loggedIn: true },
@@ -46,7 +44,16 @@ function LoginForm() {
   };
 
   return (
-    <Card className="my-50">
+    <div
+      className="flex-box"
+      style={{
+        width: "40rem",
+        height: "100rem",
+        position: " absolute",
+        marginLeft: "40rem",
+        marginTop: "10rem",
+      }}
+    >
       {status && (
         <div>
           <h1>
@@ -56,7 +63,7 @@ function LoginForm() {
           </h1>
         </div>
       )}
-      <Card className="bg-dark mx-auto align-middle">
+      <Card className="bg-dark mx-auto my-10 align-middle">
         <Card.Body className="bg-dark">
           <Card.Title className="bg-dark text-white text-primary">
             <h1>Login</h1>
@@ -113,7 +120,7 @@ function LoginForm() {
           </form>
         </Card.Body>
       </Card>
-    </Card>
+    </div>
   );
 }
 
